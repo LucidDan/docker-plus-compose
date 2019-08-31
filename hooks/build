@@ -1,0 +1,15 @@
+# Look at DOCKER_TAG and extract docker version and docker-compose version
+
+if [ "${DOCKER_TAG}" == "latest" ]; then
+	DOCKER_VERSION=latest
+	COMPOSE_VERSION=1.24.1
+else
+	DOCKER_VERSION=${DOCKER_TAG%%"-"*}
+	COMPOSE_VERSION=${DOCKER_TAG#*"-"}
+fi
+
+echo "Docker version: ${DOCKER_VERSION}"
+echo "Docker Compose version: ${COMPOSE_VERSION}"
+
+docker build --build-arg "DOCKER_VERSION=${DOCKER_VERSION}" --build-arg "COMPOSE_VERSION=${COMPOSE_VERSION}" -f ${DOCKERFILE_PATH} -t ${IMAGE_NAME} .
+
