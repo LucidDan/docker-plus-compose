@@ -1,7 +1,7 @@
 #!/bin/sh
 # Look at DOCKER_TAG and extract docker version and docker-compose version
 
-if [ "${DOCKER_TAG}" == "latest" ]; then
+if [ "x${DOCKER_TAG}" = "xlatest" ]; then
 	DOCKER_VERSION=latest
 	COMPOSE_VERSION=1.24.1
 else
