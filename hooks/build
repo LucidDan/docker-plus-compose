@@ -12,5 +12,5 @@ fi
 echo "Docker version: ${DOCKER_VERSION}"
 echo "Docker Compose version: ${COMPOSE_VERSION}"
 
-docker build --build-arg "DOCKER_VERSION=${DOCKER_VERSION}" --build-arg "COMPOSE_VERSION=${COMPOSE_VERSION}" -f ${DOCKERFILE_PATH} -t ${IMAGE_NAME}:${DOCKER_TAG} .
+docker build --build-arg "DOCKER_VERSION=${DOCKER_VERSION}" --build-arg "COMPOSE_VERSION=${COMPOSE_VERSION}" -f ${DOCKERFILE_PATH} -t ${IMAGE_NAME} .
 
